@@ -16,34 +16,26 @@ recreational purposes. <br>
 This capstone for BrainStation applies supervised madchine learning models and techniuqest to classify aviation accidents as fatal or 
 non-fatal.  <br>
 
-REQUIREMENTS
----------------
-requirements.txt                                    set up conda environment with necessary packages installed
-requirements_manual.txt                             list of packages to install individually (same output as requirements.txt)
-
 
 FILE LIST
 ---------------
-|File Name                          | Description|
-|:----------------------------------|:-----------|
-|*Data Files*                       |         |
-|castpone_dataset_raw.csv           |Raw dataset after merging NTSB data (available: |
-|capstone_dataset_clean.csv         | Clean dataset with Billboard and Spotify data|
-|capstone_dataset_artists.csv       | Dataset of artists information|
-|capstone_dataset_genre.csv         | Dataset of artists and music genre|
-|capstone_dataset_lyrics.csv        | Dataset of song lyrics|
-|dataset_webscrape.csv              | Raw data from webscraping billboard.com|
-|dataset_kaggle.csv                 | Raw dataset from Kaggle that contains Spotify information and lyrics|
-|dataset_dataworld.csv              | Raw dataset from data.world that contains songs with Spotify Track URI|
-|*Jupyter Notebooks*                |         |
-|BrainStation_Capstone_Pt1of6.ipynb | Jupyter notebook detailing data acquisition|
-|BrainStation_Capstone_Pt2of6.ipynb | Jupyter notebook for EDA, Data Transformation, and Feature Engineering|
-|BrainStation_Capstone_Pt3of6.ipynb | Jupyter notebook for Logistic Regression modeling|
-|BrainStation_Capstone_Pt4of6.ipynb | Jupyter notebook for Decision Tree modeling|
-|BrainStation_Capstone_Pt5of6.ipynb | Jupyter notebook for NLP analysis on song lyrics|
-|BrainStation_Capstone_Pt6of6.ipynb | Jupyter notebook with various data visualization and analyses|
-|*Other Files*                      |
-|glossary.pdf                       | Explanation of each feature in the dataset|
+|File Name                          | Description                                               | 
+|:----------------------------------|:----------------------------------------------------------|
+|*Data Files*                       |                                                           |
+|Data/Raw (folder)                  | Contains all original data from the NTSB                  |
+|flight_crew_hours_08.csv           | Dataset of total flight hours by crew member              |
+|ntsb_08_final.csv                  | Dataset exported from mySQL join                          |
+|ntsb08_clean.csv                   | Cleaned dataset exported from the Part 1 Capstone Notebook|
+|ntsb08_model.csv                   | Cleaned dataset exported after dummy variable encoding    |
+|*Jupyter Notebooks*                |                                                           |
+|BrainStation_Capstone_Pt1of6.ipynb | Jupyter notebook detailing initial cleaning               |
+|BrainStation_Capstone_Pt2of6.ipynb | Jupyter notebook for dummy variable encoding              |
+|BrainStation_Capstone_Pt3of6.ipynb | Jupyter notebook for Logistic Regression modeling         |
+|BrainStation_Capstone_Pt4of6.ipynb | Jupyter notebook for Decision Tree modeling               |
+|BrainStation_Capstone_Pt5of6.ipynb | Jupyter notebook for KNN modeling                         |
+|BrainStation_Capstone_Pt6of6.ipynb | Jupyter notebook for model selection & evaluation         |
+|*Other Files*                      |                                                           |
+|admspub_datadictionary.csv         | NTSB provided data dictionary                             |
 
 
 DATA SOURCE
@@ -54,17 +46,13 @@ Link to NTSB Aviation Acccident Data:
 
 ENVIRONMENT
 ---------------
-Special packages were installed in order to run queries for this project. Refer to requirements.txt or requirements_manual.txt files 
-for instructions on how to install.
-
 - python3
 
 
 HOUSEKEEPING NOTES
 ---------------
 - Make sure all files are stored in a subfolder named 'data' within the same folder as the working Jupyter notebooks.
-- The three files that start with "dataset_" are not needed nor will they be produced from any of the code. They are the raw files 
-   before being merged to 'capstone_dataset_raw.csv'. Is is there for reference or verification.
-- The code from 'Capstone Project - 2. Data Transformation.ipynb' will require the 'capstone_dataset_raw.csv' file. Once the code runs, 
-  the following files will be generated: 'capstone_dataset_clean.csv' and 'capstone_dataset_artists.csv'and 'capstone_dataset_genre.csv'
-- The last section of 'Capstone Project - 5. Text Analysis with NLP.ipynb' will save a .pkl file whhich will then be used in the 'Capstone Project - 6. Data Visualization.ipynb' workbook
+- The raw files exported from the NTSB dataset is located in the Data/Raw folder and are not needed to run the notebooks
+- 'Capstone Project - Pt1of6.ipynb' will require the 'ntsb_08_final.csv' file. You can export the ntsb08_clean.csv from the notebook if you so choose.
+- 'Capstone Project - Pt2of6.ipynb' will require the 'ntsb08_clean.csv' file, which you either exported from the previous notebook or can be downloaded. The code from noetbook 2 must be run and the CSV ('ntsb08_model.csv') must be exported. It is too large to host on GitHub and is required for the remaining notebooks. 
+- Use the 'ntsb08_model.csv' file for all remaining Jupyter notebooks. 
